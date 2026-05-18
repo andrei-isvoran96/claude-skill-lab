@@ -14,6 +14,7 @@ User-typed `/foo` commands. Drop these into your project at `.claude/commands/<n
 | [`plan-review.md`](plan-review.md) | Draft a plan + run up to 3 rounds of unbiased peer review | none |
 | [`lint.md`](lint.md) | Run N linters in parallel | linter commands |
 | [`health.md`](health.md) | Check N services in parallel (containers + HTTP probes) | service names, ports |
+| [`handoff.md`](handoff.md) | Write a structured handoff brief + print the one-liner to resume in a fresh `claude` session when the context window is filling up | `<HANDOFF_DIR>` (default `.claude/handoffs`) |
 
 ## How a slash command file works
 
