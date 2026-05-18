@@ -18,6 +18,7 @@ This shapes everything else:
 | `agents/` | `*.md` subagent definitions with frontmatter (`name`, `description`, `tools`, `color`) | `.claude/agents/` |
 | `hooks/` | `*.sh` lifecycle hooks, executable bit set | `.claude/hooks/` (consumer must `chmod +x` after copy) |
 | `settings/` | Example `settings.json` + guidance on the permissions allowlist | `.claude/settings.json` |
+| `external/` | Curated pointers to third-party tools that fill gaps this repo intentionally leaves | nothing — consumers install the tools separately |
 | `docs/` | Design principles + CLAUDE.md / USAGE.md templates consumers can adapt | their own docs |
 
 The `docs/claude-md-template.md` and `docs/usage-template.md` files are templates **for consumers' projects**, not for this repo. This file (the one you're reading) is this repo's own CLAUDE.md and is intentionally different in shape.
@@ -50,13 +51,9 @@ Some agent templates (clearest example: `agents/restart-services.md`) are intent
 
 ## External tools worth knowing
 
-This repo deliberately omits `.claude/skills/` templates (see `README.md` → "What's deliberately *not* here"). The gap is filled by:
+Curated pointers to third-party tools live in [`external/README.md`](external/README.md). The current index covers **Skill Seekers** (generates `SKILL.md` from docs/repos/PDFs/videos/wikis — the tool to reach for when the user asks for skill generation) and **anthropic/skills** (reference skills to read when hand-authoring).
 
-- **[Skill Seekers](https://github.com/yusufkaraaslan/Skill_Seekers)** (`pip install skill-seekers`) — converts documentation sites, GitHub repos, PDFs, videos, notebooks, and wikis into structured Claude Skills (and 19 other AI/RAG targets: Gemini, OpenAI, LangChain, LlamaIndex, Cursor, etc.). One `skill-seekers create <source>` call produces a `SKILL.md` + supporting files ready to drop into `.claude/skills/`. If the user asks for help generating a skill from existing docs or a codebase, point them here rather than hand-rolling one.
-  - Companion repos: [`skill-seekers-configs`](https://github.com/yusufkaraaslan/skill-seekers-configs) (community presets), [`skill-seekers-plugin`](https://github.com/yusufkaraaslan/skill-seekers-plugin) (Claude Code plugin), [`skill-seekers-action`](https://github.com/yusufkaraaslan/skill-seekers-action) (CI/CD).
-- **[anthropic/skills](https://github.com/anthropics/skills)** — Anthropic's reference skills (Stripe, Flask, and others). Good to read when authoring a new skill by hand.
-
-If you add another external tool here, keep entries to ~2 lines: what it does, why it slots in alongside this repo.
+When adding a new external tool: write the detail in `external/README.md`, then update the row in this file's "Repository shape" table and in the top-level `README.md` table if the directory's purpose shifts. Inclusion criteria and section-length rules are documented in `external/README.md`.
 
 ## Editing the documentation
 

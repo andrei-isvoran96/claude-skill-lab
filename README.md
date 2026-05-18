@@ -12,6 +12,7 @@ A personal collection of **reusable Claude Code patterns** — slash commands, s
 | [`agents/`](agents/) | Subagent definitions (`.claude/agents/*.md`) | You want Claude to delegate a noisy task (long logs, build output, test runs) to a side conversation so the main context stays clean |
 | [`hooks/`](hooks/) | Tool-call lifecycle hooks (`.claude/hooks/*.sh`) | You want to **block** dangerous commands, or auto-run a linter/typechecker after every file edit |
 | [`settings/`](settings/) | `settings.json` examples + permission allowlist patterns | You want fewer permission prompts without blanket-allowing Bash |
+| [`external/`](external/) | Pointers to third-party tools that fill gaps this repo deliberately leaves (e.g. skill generation) | You're looking for capabilities outside the patterns shipped here |
 | [`docs/`](docs/) | The meta-patterns and templates behind everything else | You want to understand *why* things are shaped the way they are, or write your own variants |
 
 ## How to use it
