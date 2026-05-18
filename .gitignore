@@ -1,0 +1,11 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# don't accidentally commit a real .claude/ directory if someone uses this repo as a project
+.claude/local/
+.claude/settings.local.json
+.claude/review-history.txt

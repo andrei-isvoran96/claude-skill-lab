@@ -1,0 +1,57 @@
+{
+  "_comment": "Example .claude/settings.json. Customize freely — see permissions-allowlist.md for what belongs on the allow list and what doesn't.",
+
+  "permissions": {
+    "allow": [
+      "Bash(docker-compose logs *)",
+      "Bash(docker compose logs *)",
+      "Bash(docker-compose ps *)",
+      "Bash(docker compose ps *)",
+      "Bash(docker-compose top *)",
+      "Bash(docker compose top *)",
+
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git branch *)",
+      "Bash(git show *)",
+
+      "Bash(gh issue view *)",
+      "Bash(gh pr view *)",
+      "Bash(gh pr list *)",
+      "Bash(gh issue list *)"
+    ]
+  },
+
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/block-destructive.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/lint-on-edit.sh",
+            "timeout": 30
+          },
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/typecheck-on-edit.sh",
+            "timeout": 120
+          }
+        ]
+      }
+    ]
+  }
+}
